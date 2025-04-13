@@ -1,0 +1,58 @@
+FORMATO
+
+1)Tenemos una imagen en formato bitmap(BMP) su estructura permite un acceso
+directo y rapido a cada pixel.Cada pixel se representa en tripletas RGB (Rojo
+,Verde,Azul), puede usar de 1 a 32bits por pixel, en imagenes de 24 bits
+cada pixel ocupa exactamente 3bytes uno para cada canal de color.
+Rojo-11011010
+Verde-1010101
+Azul-11011000
+
+TECNICA
+
+2)Tecnicas de transformacion de datos para ocultar y proteger informacion 
+visual.Permiten aplicar multiples capas de cifrado y distorsion a una imagen
+volviendo su contenido irreconocible
+
+TRANSFORMACION
+
+3)Una imagen BMP de 24 bits fue sometida a una serie de transformaciones
+a nivel de bits, que incluyen desplazamientos,rotaciones y operaciones XOR
+con una imagen de distorsion generada aleatoriamente(Entiendo que las
+operaciones XOR se aplicaron con la imagen de distorsion y los desplazamientos
+y las rotaciones a la imagen BMP de 24 bits),estas transformaciones se aplicaron
+en un orden desconocido.
+
+ENMASCARAMIENTO
+
+4)Por cada transformacion se uso una tecnica de enmascaramiento que consistio
+en sumar una porcion de la imagen trasnformada con una mascara de color(8bits)
+
+ECUACION
+
+5)la porcion de la imagen utilizada para el enmascaramiento se determino a
+partir de una posicion aleatoria(semilla),desde la cual se aplica la suma
+con la mascara.(Entiendo que a la imagen transformada se aplica el 
+enmascaramiento a partir de una posicion aleatoria llamada semilla que 
+determina la porcion de la imagen utilizada para el enmascaramiento.
+Por lo tanto pueden ser porciones mas grandes o pequeñas dependiendo de su
+posicion(semilla))
+
+RESULTADO
+
+6)El resultado fue una imagen altamente trasnformada junto con varios 
+archivos de rastreo (uno por cada transformacion realizada).Estos archivos
+contienen la informacion resultante del enmascaramiento aplicado en cada etapa
+y constituyen la unica pista disponible para deducir el orden de las 
+transformaciones y revertir sus efectos.(Tengo la cantidad de transformaciones
+realizadas que equivalen al numero de archivos de rastreo generados y el
+resultado final de cada enmascaramiento)
+
+DESAFIO
+
+7)Este desafio simula un escenario de ingenieria inversa,en el que con 
+informacion limitada y sin conocer direcatamente el algortimo completo ni el
+orden de los pasos aplicados, se debe reconstruir la imagen original utilizando
+logica,deduccion, y habilidades de programacion.
+ 
+
