@@ -1,0 +1,8 @@
+Analisis del problema
+
+Tengo una imagen BMP alterada por una serie de trasnformaciones que desconozco su orden
+y a su vez un enmascaramiento RGB de un color por cada transformacion, en una porcion
+de la imagen.Porcion aleatoria generada por una posicion inicial. Tambien tengo unos 
+archivos con los resultados del enmascaramiento aplicado en cada etapa. 
+conozco las operaciones realizadas a nivel de bits:Desplazamientos, Rotaciones, 
+Operacion XOR con una imagen de distorsion.   
