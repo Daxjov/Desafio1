@@ -54,7 +54,11 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../../main.cpp 
 OBJECTS       = main.o
-DIST          = /Qt/6.9.0/gcc_64/mkspecs/features/spec_pre.prf \
+DIST          = ../../Caso \
+		../../1/I_M.bmp \
+		../../Caso \
+		../../1/I_O.bmp \
+		/Qt/6.9.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/Qt/6.9.0/gcc_64/mkspecs/common/unix.conf \
 		/Qt/6.9.0/gcc_64/mkspecs/common/linux.conf \
 		/Qt/6.9.0/gcc_64/mkspecs/common/sanitize.conf \
@@ -269,6 +273,7 @@ DIST          = /Qt/6.9.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/Qt/6.9.0/gcc_64/mkspecs/features/qt_config.prf \
 		/Qt/6.9.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/Qt/6.9.0/gcc_64/mkspecs/features/spec_post.prf \
+		../../.qmake.stash \
 		/Qt/6.9.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/Qt/6.9.0/gcc_64/mkspecs/features/toolchain.prf \
 		/Qt/6.9.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -516,6 +521,7 @@ Makefile: ../../ProjectParams.pro ../../../../Qt/6.9.0/gcc_64/mkspecs/features/s
 		../../../../Qt/6.9.0/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/6.9.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt/6.9.0/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/6.9.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/6.9.0/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/6.9.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -755,6 +761,7 @@ Makefile: ../../ProjectParams.pro ../../../../Qt/6.9.0/gcc_64/mkspecs/features/s
 ../../../../Qt/6.9.0/gcc_64/mkspecs/features/qt_config.prf:
 ../../../../Qt/6.9.0/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../../../Qt/6.9.0/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/6.9.0/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/6.9.0/gcc_64/mkspecs/features/toolchain.prf:
 ../../../../Qt/6.9.0/gcc_64/mkspecs/features/default_pre.prf:

@@ -44,8 +44,8 @@ unsigned int* loadSeedMasking(const char* nombreArchivo, int &seed, int &n_pixel
 int main()
 {
     // Definición de rutas de archivo de entrada (imagen original) y salida (imagen modificada)
-    QString archivoEntrada = "I_O.bmp";
-    QString archivoSalida = "I_D.bmp";
+    QString archivoEntrada = "Caso 1/I_O.bmp";
+    QString archivoSalida = "Caso 1/I_D.bmp";
 
     // Variables para almacenar las dimensiones de la imagen
     int height = 0;
