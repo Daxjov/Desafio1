@@ -1,3 +1,7 @@
 QT += core gui
 CONFIG += console c++17
 SOURCES += main.cpp
+
+DISTFILES += \
+    Caso 1/I_M.bmp \
+    Caso 1/I_O.bmp
