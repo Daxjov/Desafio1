@@ -40,30 +40,39 @@ using namespace std;
 unsigned char* loadPixels(QString input, int &width, int &height);
 bool exportImage(unsigned char* pixelData, int width,int height, QString archivoSalida);
 unsigned int* loadSeedMasking(const char* nombreArchivo, int &seed, int &n_pixels);
+//Firmas de funciones creadas
+unsigned char* funcXor(unsigned char* img1, unsigned char* img2, int &width, int &height);
 
 int main()
 {
     // Definición de rutas de archivo de entrada (imagen original) y salida (imagen modificada)
-    QString archivoEntrada = "Caso 1/I_O.bmp";
+    QString archivoEntrada = "Caso 1/P3.bmp";
     QString archivoSalida = "Caso 1/I_D.bmp";
+    QString archivoEntrada1 = "Caso 1/I_M.bmp";
 
     // Variables para almacenar las dimensiones de la imagen
     int height = 0;
     int width = 0;
 
     // Carga la imagen BMP en memoria dinámica y obtiene ancho y alto
+
     unsigned char *pixelData = loadPixels(archivoEntrada, width, height);
+    unsigned char *dataimgIM = loadPixels(archivoEntrada1,width,height);
+    //OPeracion XOR Ultima Imagen y Imagen Mascara
+    cout<<width<<","<<height<<endl;
+    unsigned char *resultado = funcXor(pixelData,dataimgIM,width,height);
 
     // Simula una modificación de la imagen asignando valores RGB incrementales
     // (Esto es solo un ejemplo de manipulación artificial)
-    for (int i = 0; i < width * height * 3; i += 3) {
+
+   /* for (int i = 0; i < width * height * 3; i += 3) {
         pixelData[i] = i;     // Canal rojo
         pixelData[i + 1] = i; // Canal verde
         pixelData[i + 2] = i; // Canal azul
     }
-
+*/
     // Exporta la imagen modificada a un nuevo archivo BMP
-    bool exportI = exportImage(pixelData, width, height, archivoSalida);
+    bool exportI = exportImage(resultado, width, height, archivoSalida);
 
     // Muestra si la exportación fue exitosa (true o false)
     cout << exportI << endl;
@@ -71,6 +80,12 @@ int main()
     // Libera la memoria usada para los píxeles
     delete[] pixelData;
     pixelData = nullptr;
+
+    delete[] dataimgIM;
+    dataimgIM = nullptr;
+
+    delete[] resultado;
+    resultado = nullptr;
 
     // Variables para almacenar la semilla y el número de píxeles leídos del archivo de enmascaramiento
     int seed = 0;
@@ -269,6 +284,15 @@ unsigned int* loadSeedMasking(const char* nombreArchivo, int &seed, int &n_pixel
 }
 
 
+unsigned char* funcXor(unsigned char* img1, unsigned char* img2, int &width, int &height){
+   int size= width * height * 3;
+    unsigned char *resultado = new unsigned char[size];
+    for (int u = 0; u <= size; ++u) {
+     resultado[u] = img1[u] ^ img2[u];
+
+    }
+    return resultado;
+}
 
 
 
