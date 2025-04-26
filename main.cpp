@@ -61,7 +61,7 @@ int main()
     unsigned char *pixelData = loadPixels(archivoEntrada, width, height);
     unsigned char *dataimgIM = loadPixels(archivoEntrada1,width,height);
 
-    //OPeracion XOR Ultima Imagen y Imagen Mascara
+    //OPeracion XOR Ultima Imagen e Imagen Mascara
 
     cout<<width<<","<<height<<endl;
     unsigned char *resultado = funcXor(pixelData,dataimgIM,width,height);
@@ -160,6 +160,71 @@ delete[] Desenmascaramiento2;
 
     delete[] resultado3Bits;
     resultado3Bits = nullptr;
+    //Variables semilla y numero
+
+    int seed1 = 0;
+    int n_pixels1 = 0;
+
+    //Archivos de entrada y salida
+    QString archivoEntrada4 ="Caso 1/M.bmp";
+    QString archivoSalida4 = "Caso 1/I_D4.bmp";
+
+    //Carga de la mascara.bmp
+    unsigned char *mascara1 = loadPixels(archivoEntrada4,widthM,heightM);
+
+
+    //Carga de archivo enmascaramiento1
+
+        unsigned int *m1Txt = loadSeedMasking("Caso 1/M1.txt",seed1,n_pixels1);
+
+    //Operacion desenmascarar
+
+    unsigned char *Desenmascaramiento1 = Desenmascar(m1Txt,mascara1,seed1,widthM,heightM,n_pixels1);
+
+    //Exportar archivo D4
+
+    bool ExportIIII = exportImage(Desenmascaramiento1,width,height,archivoSalida4);
+    cout<<ExportIIII<<endl;
+
+    delete[] mascara1;
+    mascara1 = nullptr;
+
+    delete[] m1Txt;
+    m1Txt = nullptr;
+
+    delete[]Desenmascaramiento1;
+    Desenmascaramiento1 = nullptr;
+
+   // Rutas de archivo de entrada  y salida
+    QString archivoEntrada5 = "Caso 1/I_D4.bmp";
+    QString archivoSalida5 = "Caso 1/I_D5.bmp";
+    QString archivoEntrada6 = "Caso 1/I_M.bmp";
+
+
+    // Carga la imagen BMP en memoria dinámica y obtiene ancho y alto
+
+    unsigned char *imgI_M = loadPixels(archivoEntrada6,width,height);
+    unsigned char *imgD4 =loadPixels(archivoEntrada5,width,height);
+
+    //Operacion XOR primer Imagen e Imagen Mascara
+
+    unsigned char *resultadoFinal = funcXor(imgD4,imgI_M,width,height);
+
+
+    // Exporta la imagen D5
+    bool exportIIIII= exportImage(resultadoFinal, width, height, archivoSalida5);
+
+    // Muestra si la exportación fue exitosa (true o false)
+    cout << exportIIIII << endl;
+
+    delete[]imgD4;
+    imgD4 = nullptr;
+
+    delete[]imgI_M;
+    imgI_M = nullptr;
+
+    delete[] resultadoFinal;
+    resultadoFinal = nullptr;
 
 
     return 0; // Fin del programa

@@ -64,6 +64,12 @@ DIST          = ../../Caso \
 		../../1/M2.txt \
 		../../Caso \
 		../../1/I_D2.bmp \
+		../../Caso \
+		../../1/I_D4.bmp \
+		../../Caso \
+		../../1/M1.txt \
+		../../Caso \
+		../../1/I_D5.bmp \
 		/Qt/6.9.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/Qt/6.9.0/gcc_64/mkspecs/common/unix.conf \
 		/Qt/6.9.0/gcc_64/mkspecs/common/linux.conf \
