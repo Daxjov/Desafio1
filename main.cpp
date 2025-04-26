@@ -42,6 +42,7 @@ bool exportImage(unsigned char* pixelData, int width,int height, QString archivo
 unsigned int* loadSeedMasking(const char* nombreArchivo, int &seed, int &n_pixels);
 //Firmas de funciones creadas
 unsigned char* funcXor(unsigned char* img1, unsigned char* img2, int &width, int &height);
+unsigned char* Desenmascar(unsigned int* datostxt, unsigned char* mascara, int &seed, int &widthM,int &heightM,int &n_pixels);
 
 int main()
 {
@@ -90,23 +91,45 @@ int main()
     // Variables para almacenar la semilla y el número de píxeles leídos del archivo de enmascaramiento
     int seed = 0;
     int n_pixels = 0;
+    int widthM = 0;
+    int heightM =0;
+
+    QString archivoEntrada2= "Caso 1/M.bmp";
+    QString archivoSalida2= "Caso 1/I_D2";
 
     // Carga los datos de enmascaramiento desde un archivo .txt (semilla + valores RGB)
-    unsigned int *maskingData = loadSeedMasking("M1.txt", seed, n_pixels);
+    unsigned int *maskingData = loadSeedMasking("Caso 1/M1.txt", seed, n_pixels);
 
-    // Muestra en consola los primeros valores RGB leídos desde el archivo de enmascaramiento
+   /* // Muestra en consola los primeros valores RGB leídos desde el archivo de enmascaramiento
     for (int i = 0; i < n_pixels * 3; i += 3) {
         cout << "Pixel " << i / 3 << ": ("
              << maskingData[i] << ", "
              << maskingData[i + 1] << ", "
              << maskingData[i + 2] << ")" << endl;
     }
+*/
+    //Carga de la mascara.bmp
+    unsigned char *mascara = loadPixels(archivoEntrada2,widthM,heightM);
+
+    //Funcion Desenmascarar
+    unsigned char *Desenmascaramiento2=Desenmascar(maskingData,mascara,seed,widthM,heightM,n_pixels);
+
+     //Funcion Exportar Imagen
+
+    bool ExportII = exportImage(Desenmascaramiento2,width,height,archivoSalida2);
+                   cout<<ExportII<<endl;
 
     // Libera la memoria usada para los datos de enmascaramiento
     if (maskingData != nullptr){
         delete[] maskingData;
         maskingData = nullptr;
     }
+
+delete[] mascara;
+    mascara = nullptr;
+
+delete[] Desenmascaramiento2;
+    Desenmascaramiento2 = nullptr;
 
     return 0; // Fin del programa
 }
@@ -297,7 +320,23 @@ unsigned char* funcXor(unsigned char* img1, unsigned char* img2, int &width, int
 
 
 
+unsigned char* Desenmascar(unsigned int* datostxt, unsigned char* mascara, int &seed, int &widthM,int &heightM,int &n_pixels) {
+    unsigned char* imagenDesenmascarada = new unsigned char[n_pixels];
+    n_pixels = widthM * heightM;
+    for (int u = 0; u < n_pixels; ++u) {
+        int posicion = u + seed;
+        if (posicion < n_pixels) {
+            int valor = (int)(datostxt[u]) - (int)(mascara[u]);
 
+            if (valor < 0) valor = 0;
+            if (valor > 255) valor = 255;
+
+            imagenDesenmascarada[posicion] = (unsigned char)(valor);
+        }
+    }
+
+    return imagenDesenmascarada;
+}
 
 
 

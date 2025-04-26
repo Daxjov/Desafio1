@@ -5,4 +5,5 @@ SOURCES += main.cpp
 DISTFILES += \
     Caso 1/I_M.bmp \
     Caso 1/I_O.bmp \
-     Caso 1/P3.bmp \
+    Caso 1/P3.bmp \
+    Caso 1/M2.txt
