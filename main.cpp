@@ -43,6 +43,7 @@ unsigned int* loadSeedMasking(const char* nombreArchivo, int &seed, int &n_pixel
 //Firmas de funciones creadas
 unsigned char* funcXor(unsigned char* img1, unsigned char* img2, int &width, int &height);
 unsigned char* Desenmascar(unsigned int* datostxt, unsigned char* mascara, int &seed, int &widthM,int &heightM,int &n_pixels);
+unsigned char* rotacionInversa(unsigned char* imagen, int &ancho, int &alto);
 
 int main()
 {
@@ -93,9 +94,9 @@ int main()
     int n_pixels = 0;
     int widthM = 0;
     int heightM =0;
-
+//Archivos de entrada y salida
     QString archivoEntrada2= "Caso 1/M.bmp";
-    QString archivoSalida2= "Caso 1/I_D2";
+    QString archivoSalida2= "Caso 1/I_D2.bmp";
 
     // Carga los datos de enmascaramiento desde un archivo .txt (semilla + valores RGB)
     unsigned int *maskingData = loadSeedMasking("Caso 1/M1.txt", seed, n_pixels);
@@ -130,6 +131,28 @@ delete[] mascara;
 
 delete[] Desenmascaramiento2;
     Desenmascaramiento2 = nullptr;
+
+//Archivo de entrada
+
+    QString archivoEntrada3 = "Caso 1/I_D2.bmp";
+    QString archivoSalida3 ="Caso 1/I_D3.bmp";
+
+    //Carga de Imagen D2
+
+    unsigned char *imgI_D2 = loadPixels(archivoEntrada3,width,height);
+
+//Operacion de 3 bits ala izquierda
+
+    unsigned char *resultado3Bits = rotacionInversa(imgI_D2,width,height);
+
+    bool ExportIII = exportImage(imgI_D2,width,height,archivoSalida3);
+    cout<<ExportIII<<endl;
+
+
+    delete[] imgI_D2;
+    imgI_D2 = nullptr;
+    delete[] resultado3Bits;
+    resultado3Bits = nullptr;
 
     return 0; // Fin del programa
 }
@@ -318,8 +341,6 @@ unsigned char* funcXor(unsigned char* img1, unsigned char* img2, int &width, int
 }
 
 
-
-
 unsigned char* Desenmascar(unsigned int* datostxt, unsigned char* mascara, int &seed, int &widthM,int &heightM,int &n_pixels) {
     unsigned char* imagenDesenmascarada = new unsigned char[n_pixels];
     n_pixels = widthM * heightM;
@@ -336,6 +357,20 @@ unsigned char* Desenmascar(unsigned int* datostxt, unsigned char* mascara, int &
     }
 
     return imagenDesenmascarada;
+}
+
+
+unsigned char* rotacionInversa(unsigned char* imagen, int &ancho, int &alto) {
+    int totalPixeles = ancho * alto * 3;
+    unsigned char* resultado = new unsigned char[totalPixeles];
+
+    for (int i = 0; i < totalPixeles; ++i) {
+        unsigned char byte = imagen[i];
+        // Rotación de 3 bits a la izquierda
+        resultado[i] = (byte << 3) | (byte >> (8 - 3));
+    }
+
+    return resultado;
 }
 
 
