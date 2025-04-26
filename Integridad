@@ -1,0 +1,9 @@
+Analizando el efecto que tiene las transformaciones a nivel de bits es 
+importante destacar el uso de la mascara ya que le dio un color de grises 
+y al ir desenmascarando pude visualizar una  imagen a color. 
+Es posible que no halla tenido la integridad de la imagen original
+"Es posible" 
+pero aun pude ver cada resultado de tranformaciones inversas que aplique 
+pudiendo constatar la encriptacion que se puede aplicar a una imagen
+de formato digital bmp, espero a ver llegado a la solucion a traves de las 
+funciones.

@@ -1,8 +1,75 @@
-Analisis del problema
+Desarrolo del Proyecto
 
-Tengo una imagen BMP alterada por una serie de trasnformaciones que desconozco su orden
-y a su vez un enmascaramiento RGB de un color por cada transformacion, en una porcion
-de la imagen.Porcion aleatoria generada por una posicion inicial. Tambien tengo unos 
-archivos con los resultados del enmascaramiento aplicado en cada etapa. 
-conozco las operaciones realizadas a nivel de bits:Desplazamientos, Rotaciones, 
-Operacion XOR con una imagen de distorsion.   
+a)Analisis del problema
+Tengo una imagen BMP alterada por una serie de trasnformaciones que desconozco
+su orden y a su vez un enmascaramiento RGB de un color por cada transformacion
+en una porcion de la imagen.Porcion aleatoria generada por una posicion 
+inicial. Tambien tengo unos archivos con los resultados del enmascaramiento 
+aplicado en cada etapa.Conozco las operaciones realizadas a nivel de bits:
+Desplazamientos, Rotaciones y Operacion XOR con una imagen de distorsion.
+   
+
+El analisis del problema  empezo con un analisis de lectura del desafio1 
+empezando por entender las consideraciones iniciales y seguido
+la solucion que se pedia para la impletacion del programa. 
+las consideraciones que me plantee para llegar a la solucion fue el entender
+a fondo la imagen bmp y su formato digital de facil manejo,
+sequido los arreglos de matrices filas y columnas, su almacenamiento en cada 
+posicion,entender bien los punteros y los paramentros con paso por referencia
+y por puntero,entender bien la reserva de memoria dinamica y su liberacion
+entender las funciones y su uso, Entender el uso de IA para comprender al
+maximo los conceptos de programacion que no comprendia necesie  
+en esencia estas fueron las consideraciones planteadas y las bases con las que 
+inicie este desafio.
+Esquema
+-Primer algoritmo
+.funcion XOR llamda funcXOR()
+(Tarea1:Compreder el orden de las transformaciones me di cuenta que primero
+debia empezar con la ultima imagen llamda P3 ya que no tenia enmascaramiento
+pero si un xor comprendi el desplazamiento atraves de los pixeles y cree 
+la funcion xor dando el primer paso en el desafio,progrese cuando reserve 
+espacio de memoria para el retorno de la funcion y cree la variable para la
+capacidad de reserva )
+-Segundo algoritmo
+.Funcion desenmascarar llamada Desenmascarar()
+(Tarea2:Entender que no necesitaba la imagen generada con el xor
+si no la semilla y la formula para despejar de la formula los datos RGB 
+con los datos RGB de la mascara.bmp y el archivo de texto M2.txt.reserve 
+espacio de memoria para el retorno de la funcion y cree la variable para la  
+capacidad de reservo)
+-Tercer algoritmo 
+.Funcion 3 bits llamda rotacionInversa()
+(Tarea3:En esta  funcion entendi  que debia realizar el desplazamiento a la
+izquierda y acomdar los bits a la derecha l reserve espacio de memoriapara el 
+retorno de la funcion y cree la variable para la capacidad de reserva y su
+iteracion.)
+
+Algoritmos implementados
+-funcXor()
+-Desenmascarar()
+-rotacionInversa()
+
+
+Problemas de Desarrollo
+
+Problemas en el desarrolloque enfrente fue el orden de implemtacion de las 
+funciones su liberacion de memoria dinamica,el llamado de  las funciones
+entender en donde se hicieron losenmascaramientos,problemas al cargar los
+archivos por un espacio que quedo entre las comillas entre mas errores al
+cargar archivos como errores tipograficos en el ProjectParams.
+
+Evolucion de la solucion y consideraciones de implementacion
+La evolucion de la solucion la tuve cuando aprendi a imnplementar 
+las funciones corectamente reservar memoria dinamica y liberarlas
+en ese momento la  evolucion corrio por si sola al 
+enteder la exportacion de cada imagen que podia generar las imagenes
+una a una llamando la funcion varias veces y teniendo las funciones listas.
+Las consideracion fueron las funciones cuando considere implemntarlas 
+una a una en cada paso repitiendolas en cada proceso.
+
+
+
+
+
+
+ 
