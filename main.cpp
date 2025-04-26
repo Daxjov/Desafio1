@@ -150,7 +150,7 @@ delete[] Desenmascaramiento2;
     unsigned char *resultado3Bits = rotacionInversa(imgI_D2,width,height);
 //Exportar Imagen rotada
 
-    bool ExportIII = exportImage(imgI_D2,width,height,archivoSalida3);
+    bool ExportIII = exportImage(resultado3Bits,width,height,archivoSalida3);
     cout<<ExportIII<<endl;
 
     //Limpiar memoria dinamica
