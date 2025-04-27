@@ -44,7 +44,7 @@ unsigned int* loadSeedMasking(const char* nombreArchivo, int &seed, int &n_pixel
 unsigned char* funcXor(unsigned char* img1, unsigned char* img2, int &width, int &height);
 unsigned char* Desenmascar(unsigned int* datostxt, unsigned char* mascara, int &seed, int &widthM,int &heightM,int &n_pixels);
 unsigned char* rotacionInversa(unsigned char* imagen, int &ancho, int &alto);
-
+unsigned char *verificacion(unsigned char* imgT, unsigned int* datosTxt, int n_pixels1);
 int main()
 {
     // Definición de rutas de archivo de entrada (imagen original) y salida (imagen modificada)
@@ -101,7 +101,7 @@ int main()
     //Archivos de entrada y salida
     QString archivoEntrada2= "Caso 1/M.bmp";
     QString archivoSalida2= "Caso 1/I_D2.bmp";
-
+    QString archivoEntrada2_1= "Caso 1/I_D.bmp";
     // Carga los datos de enmascaramiento desde un archivo .txt (semilla + valores RGB)
     unsigned int *maskingData = loadSeedMasking("Caso 1/M2.txt", seed, n_pixels);
 
@@ -115,6 +115,11 @@ int main()
 */
     //Carga de la mascara.bmp
     unsigned char *mascara = loadPixels(archivoEntrada2,widthM,heightM);
+//Carga de archivo de la salida1
+
+    unsigned char *salidaArchivo1 = loadPixels(archivoEntrada2_1,width,height);
+//funcion verificacion
+    verificacion(salidaArchivo1,maskingData,n_pixels);
 
     //Funcion Desenmascarar
     unsigned char *Desenmascaramiento2=Desenmascar(maskingData,mascara,seed,widthM,heightM,n_pixels);
@@ -420,7 +425,7 @@ unsigned char* Desenmascar(unsigned int* datostxt, unsigned char* mascara, int &
     for (int u = 0; u < n_pixels; ++u) {
         int posicion = u + seed;
         if (posicion < n_pixels) {
-            int valor = (int)(datostxt[u]) - (int)(mascara[u]);
+            int valor = int(datostxt[u]) - (int)(mascara[u]);
 
             if (valor < 0) valor = 0;
             if (valor > 255) valor = 255;
@@ -446,6 +451,26 @@ unsigned char* rotacionInversa(unsigned char* imagen, int &ancho, int &alto) {
     return resultado;
 }
 
+
+unsigned char *verificacion(unsigned char* imgT, unsigned int* datosTxt, int n_pixels1){
+    bool correcto = true;
+
+    for( int i = 0; i< n_pixels1;++i){
+        int valorImagen = int(imgT[i]);
+        int valorArchivo = int(datosTxt[i]);
+
+        if(valorImagen != valorArchivo){
+            cout <<"Error en el pixel "<<i<<": "<<"Imagen = "<<valorImagen<<", "<<"Archivo = "<<valorArchivo<<endl;
+            correcto = false;
+        }
+    }
+
+    if (correcto){
+        cout<<"Verificaion Exitosa."<<endl;
+    } else{
+        cout<<"Hay errores entre la imagen y el archivo"<<endl;
+    }
+}
 
 
 
