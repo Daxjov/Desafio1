@@ -1,21 +1,16 @@
 Solucion planteada
 
 La unica pista disponible son los archivos generados que atravez de ellos puedo saber
-cuantas trasnformaciones se realizaron por la cantidad de archivos, uno por cada 
+los enmascaramientos que se realizaron por la cantidad de archivos, uno por cada 
 transformacion y puedo saber cual fue el primer enmascaramiento realizado por sus
-metadatos,puedo saber cual fue el primer archivo y el ultimo, resta saber que tipo
-de operaciones se hicieron en cada archivo, ahora se que las operaciones realizadas son
+datos resultante comparandolo con la ultima operacion XOR que se hizo 
+puedo saber cual fue el primer archivo y el ultimo, resta saber que tipo
+de operaciones se hicieron si se hicieron ala vez las transformaciones o despues de una operacion,
+ahora se que las operaciones realizadas son
 desplazamiento y rotaciones en la imagen alterada y operaciones XOR con una imagen de 
 distorsion generada aleatoriamente.
-Debo aplicar Ingenieria Inversa a estas operaciones, empezando desde la primera
-transformacion, sequido identificar cada color en un grupo de bits selecionados en caso
-de que no los identifique debo realizar operaciones de desplazamiento,rotacion o operacion
-XOR hasta que coincidan los bits con un color RGB y asi proceder con el resto de 
-archivos.Para conocer la porcion de enmascaramiento debo identificar la ecuacion.
-Se que se aplica una mascara de color a una porcion, por lo tanto al ser una imagen de 
-24 bits la porcion enmascarada contiene cierta cantidad de pixeles de solo 8 bits
-del mismo color por lo que puedo identificar el enmascaramiento al detectar pixeles que
-solo poseen un color RGB.   
-Esta es una solucion planteada a las consideraciones iniciales resta adentrarme
-a los bits y los datos generados por los archivos.Para comprender mejor la situacion
-y crear el programa que se pide.
+Debo aplicar Ingenieria Inversa a estas operaciones, empezando desde la ultima transformacion
+sequido identificar cada color en un grupo de bits comparandolo con los archivos M1y M2 .txt generados 
+en caso de que no los identifique debo realizar las operaciones siguientes hasta que coincidan 
+los bits con un color RGB del archivo resultante y seguir con los pasos de las operaciones.   
+
