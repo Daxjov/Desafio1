@@ -63,3 +63,36 @@ Pixel 0= imagen= 42,archivo= 449
 No coincide enmascaramiento
 
 
+Experimento 12
+
+Funcion XOR P3.bmp e I_M.bmp salida I_D.bmp.
+Funcion verificacion I_D1.bmp y archivo M2.txt
+Pixel 0= imagen= 42,archivo= 449
+No coincide enmascaramiento
+
+  
+Experimento 13
+
+Funcion XOR P3.bmp e I_M.bmp salida I_D.bmp.
+Funcion Desenmascarar M.bmp e M2.txt
+Funcion verificacion I_D1.bmp e archivo  M2.txt
+Pixel 0= imagen= 42,archivo= 449
+No coincide enmascaramiento
+
+
+Experimeto 14
+Funcion XOR P3.bmp e I_M.bmp salida I_D.bmp
+Funcion verificarEnmascaramiento salida La imagen coincide con el enmascaramiento
+Funcion Desenmascarar salida I_D1.bmp
+FUncion Desenmascarar salida I_D2.bmp
+FUncion verificarEnmascaramiento salida error en pixel
+
+Experimeto 15
+Funcion	XOR P3.bmp e I_M.bmp salida I_D.bmp
+Funcion	verificarEnmascaramiento salida La imagen coincide con el enmascaramiento
+Funcion	Desenmascarar salida I_D1.bmp
+FUncion	rotacionInversa salida I_D2.bmp
+FUncion	verificarEnmascaramiento salida	La iamgen coincide con el enmascaramiento
+Funcion Desenmascarar salida I_D3.bmp
+Funcion XOR I_D3.bmp e I_M.bmp salidd I_D4.bmp
+
