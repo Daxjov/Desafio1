@@ -1,0 +1,22 @@
+Analizando el efecto que tiene las transformaciones a nivel de bits es 
+importante destacar el uso de la mascara ya que le dio un color de grises 
+y al ir desenmascarando pude visualizar una  imagen a color. 
+Es posible que no halla tenido la integridad de la imagen original
+"Es posible" 
+pero aun pude ver cada resultado de tranformaciones inversas que aplique 
+pudiendo constatar la encriptacion que se puede aplicar a una imagen
+de formato digital bmp, espero a ver llegado a la solucion a traves de las 
+funciones.
+El Programa Implementado Muestra que las operaciones a nivel de bit que se implementaron para el enmascaramiento fueron:
+Operacion XOR
+Operacion de Desplazamiento 
+Operacion de Rotacion
+
+EL orden de estas operaciones fueron
+
+1.Operacion XOR imagen original e imagen de distorsion.
+2.Operacion Desplazamiento con la imagen modificada paso 1 una semilla y una Mascara S(k) = ID(k + s) + M(k)
+3.Rotacion de 3 bits a la derecha
+4.Operacion Desplazamiento con  la imagen modificada paso 3 una semilla y una Mascara S(k) = ID(k + s) + M(k)
+5.Operacion XOR Imagen paso 4 e Imagen de distorsion. 
+
