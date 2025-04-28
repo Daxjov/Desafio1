@@ -69,15 +69,6 @@ int main()
     unsigned char *resultado = funcXor(pixelData,dataimgIM,width,height);
 
 
-    // Simula una modificación de la imagen asignando valores RGB incrementales
-    // (Esto es solo un ejemplo de manipulación artificial)
-
-   /* for (int i = 0; i < width * height * 3; i += 3) {
-        pixelData[i] = i;     // Canal rojo
-        pixelData[i + 1] = i; // Canal verde
-        pixelData[i + 2] = i; // Canal azul
-    }
-*/
     // Exporta la imagen modificada a un nuevo archivo BMP
     bool exportI = exportImage(resultado, width, height, archivoSalida);
 
@@ -89,8 +80,6 @@ int main()
     delete[] pixelData;
     pixelData = nullptr;
 
-    delete[] dataimgIM;
-    dataimgIM = nullptr;
 
     // Variables para almacenar la semilla y el número de píxeles leídos del archivo de enmascaramiento
 
@@ -106,14 +95,7 @@ int main()
     // Carga los datos de enmascaramiento desde un archivo .txt (semilla + valores RGB)
     unsigned int *maskingData = loadSeedMasking("Caso 1/M2.txt", seed, n_pixels);
 
-  /* // Muestra en consola los primeros valores RGB leídos desde el archivo de enmascaramiento
-    for (int i = 0; i < n_pixels * 3; i += 3) {
-        cout << "Pixel " << i / 3 << ": ("
-             << maskingData[i] << ", "
-             << maskingData[i + 1] << ", "
-             << maskingData[i + 2] << ")" << endl;
-    }
-*/
+
     //Carga de la mascara.bmp
     unsigned char *mascara = loadPixels(archivoEntrada2,widthM,heightM);
 
@@ -138,24 +120,16 @@ int main()
         maskingData = nullptr;
     }
 
-delete[] mascara;
-   mascara = nullptr;
-
-delete[] Desenmascaramiento2;
-Desenmascaramiento2 = nullptr;
 
 //Archivo de entrada
 
-    QString archivoEntrada3 = "Caso 1/I_D1.bmp";
     QString archivoSalida3 ="Caso 1/I_D2.bmp";
 
     //Carga de Imagen D2
 
-    unsigned char *imgI_D1 = loadPixels(archivoEntrada3,width,height);
-
     //Operacion de 3 bits ala izquierda
 
-    unsigned char *resultado3Bits = rotacionInversa(imgI_D1,width,height);
+    unsigned char *resultado3Bits = rotacionInversa(Desenmascaramiento2,width,height);
     //Exportar Imagen rotada
 
    bool ExportIII = exportImage(resultado3Bits,width,height,archivoSalida3);
@@ -163,8 +137,8 @@ Desenmascaramiento2 = nullptr;
 
     //Limpiar memoria dinamica
 
-    delete[] imgI_D1;
-    imgI_D1 = nullptr;
+    delete[] Desenmascaramiento2;
+    Desenmascaramiento2 = nullptr;
 
     //Variables semilla y numero
 
@@ -172,25 +146,26 @@ Desenmascaramiento2 = nullptr;
     int n_pixels1 = 0;
 
     //Archivos de entrada y salida
-    QString archivoEntrada4 ="Caso 1/M.bmp";
+    //QString archivoEntrada4 ="Caso 1/M.bmp";
+
     QString archivoSalida4 = "Caso 1/I_D3.bmp";
 
     //Carga de la mascara.bmp
-    unsigned char *mascara1 = loadPixels(archivoEntrada4,widthM,heightM);
+   // unsigned char *mascara1 = loadPixels(archivoEntrada4,widthM,heightM);
 
 
     //Carga de archivo enmascaramiento1
 
         unsigned int *m1Txt = loadSeedMasking("Caso 1/M1.txt",seed1,n_pixels1);
 
-          verificarEnmascaramiento(resultado3Bits,mascara1,m1Txt,widthM,heightM,seed1);
+          verificarEnmascaramiento(resultado3Bits,mascara,m1Txt,widthM,heightM,seed1);
 
        delete[] resultado3Bits;
         resultado3Bits = nullptr;
 
           //Operacion desenmascarar
 
-      unsigned char *Desenmascaramiento1 = Desenmascarar(m1Txt,mascara1,widthM,heightM,seed1);
+      unsigned char *Desenmascaramiento1 = Desenmascarar(m1Txt,mascara,widthM,heightM,seed1);
 
 
       //Exportar archivo D3
@@ -200,29 +175,20 @@ Desenmascaramiento2 = nullptr;
 
 
 
-    delete[] mascara1;
-    mascara1 = nullptr;
+    delete[] mascara;
+    mascara = nullptr;
 
     delete[] m1Txt;
     m1Txt = nullptr;
 
-    delete[]Desenmascaramiento1;
-    Desenmascaramiento1 = nullptr;
-
    // Rutas de archivo de entrada  y salida
-    QString archivoEntrada5 = "Caso 1/I_D3.bmp";
     QString archivoSalida5 = "Caso 1/I_D4.bmp";
-    QString archivoEntrada6 = "Caso 1/I_M.bmp";
-
 
     // Carga la imagen BMP en memoria dinámica y obtiene ancho y alto
 
-    unsigned char *imgI_M = loadPixels(archivoEntrada6,width,height);
-    unsigned char *imgD3 =loadPixels(archivoEntrada5,width,height);
-
     //Operacion XOR primer Imagen e Imagen Mascara
 
-    unsigned char *resultadoFinal = funcXor(imgD3,imgI_M,width,height);
+    unsigned char *resultadoFinal = funcXor(Desenmascaramiento1,dataimgIM,width,height);
 
 
     // Exporta la imagen D5
@@ -231,11 +197,11 @@ Desenmascaramiento2 = nullptr;
     // Muestra si la exportación fue exitosa (true o false)
     cout << exportIIIII << endl;
 
-    delete[]imgD3;
-    imgD3 = nullptr;
+    delete[]Desenmascaramiento1;
+    Desenmascaramiento1 = nullptr;
 
-    delete[]imgI_M;
-    imgI_M = nullptr;
+    delete[] dataimgIM;
+    dataimgIM = nullptr;
 
     delete[] resultadoFinal;
     resultadoFinal = nullptr;
