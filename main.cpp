@@ -105,7 +105,7 @@ int main()
     // Carga los datos de enmascaramiento desde un archivo .txt (semilla + valores RGB)
     unsigned int *maskingData = loadSeedMasking("Caso 1/M2.txt", seed, n_pixels);
 
-   /* // Muestra en consola los primeros valores RGB leídos desde el archivo de enmascaramiento
+  /* // Muestra en consola los primeros valores RGB leídos desde el archivo de enmascaramiento
     for (int i = 0; i < n_pixels * 3; i += 3) {
         cout << "Pixel " << i / 3 << ": ("
              << maskingData[i] << ", "

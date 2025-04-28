@@ -1,38 +1,48 @@
 Experimento 1
  Funcion XOR P3.bmp e  I_M.bmp salida = I_D.bmp 
 
-Experimento 2 Funcion verificacion M2.txt e I_D.bmp salida =
+Experimento 2
+Funcion verificacion M2.txt e I_D.bmp salida =
 pixel 0 imagen = 69 !=  archivo = 449
 Resultado no coinciden con el enmascaramiento.
 
-Experimento 3 funcion verificacion M1.txt e I_D.bmp salida= 
+Experimento 3
+funcion verificacion M1.txt e I_D.bmp salida= 
 pixel 0 imagen = 69 != archivo 303
 Resultado no coincide enmascaramiento
 
-Experimento 4 Funcion XOR I_O.bmp e I_M.bmp + funcion verificacion M1.txt
-salida = I_D.bmp
+Experimento 4
+Funcion XOR I_O.bmp e I_M.bmp = I_D.bmp
+funcion verificacion M1.txt e I_D.bmp
+salida =
 Pixel 0 = imagen = 42 != archivo = 303
 No coincide enmascaramiento
 
-Experimento 5 Funcion XOR I_O.bmp e I_M.bmp + funcion verificacion M2.txt
-salida = I_D.bmp
+Experimento 5 
+Funcion XOR I_O.bmp e I_M.bmp = I_D.bmp 
+funcion verificacion M2.txt e I_D.bmp
+salida = 
 Pixel 0	= imagen = 42 != archivo = 449
 No coincide enmascaramiento
  
-Experimento 6 FUncion verificacion, archivo de entrada P2.bmp e M2.txt
+Experimento 6
+Funcion verificacion P2.bmp e M2.txt
 Pixel 0= imagen = 69,archivo = 449
 No coincide enmascaramiento
 
 
-Experimento 7 Funcion verificacion, archivo de entrada P3.bmp e M2.txt
+Experimento 7
+Funcion verificacion  P3.bmp e M2.txt
 Pixel 0= imagen = 144,archivo = 449
 No coincide enmascaramiento
 
-Experimento 8 Funcion verificacion, archivo de entrada P3.bmp e M1.txt
+Experimento 8
+Funcion verificacion  P3.bmp e M1.txt
 Pixel 0= imagen = 144,archivo = 303
 No coincide enmascaramiento
 
-Experimento 9 Funcion verificacion, archivo de entrada P1.bmp e M2.txt
+Experimento 9
+Funcion verificacion, P1.bmp e M2.txt
 Pixel 0= imagen = 42,archivo = 449
 No coincide enmascaramiento
 
@@ -44,4 +54,12 @@ Funcion verificacion I_D1.bmp y archivo M2.txt
 Pixel 0= imagen= 42,archivo= 449
 No coincide enmascaramiento
  
+
+Experimento 11 
+Funcion XOR P3.bmp e I_M.bmp salida I_D.bmp.
+Funcion RotacionInversa I_D salida I_D1.bmp
+Funcion verificacion I_D1.bmp y archivo M2.txt
+Pixel 0= imagen= 42,archivo= 449
+No coincide enmascaramiento
+
 
